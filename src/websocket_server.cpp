@@ -27,26 +27,28 @@ public:
 private:
     void on_open(websocketpp::connection_hdl hdl)
     {
-        std::cout << "Connection opened: " << hdl.lock().get() << std::endl;
+        std::cout << "WebSocket connection opened: " << hdl.lock().get() << std::endl;
     }
 
     void on_close(websocketpp::connection_hdl hdl)
     {
-        std::cout << "Connection closed: " << hdl.lock().get() << std::endl;
+        std::cout << "WebSocket connection closed: " << hdl.lock().get() << std::endl;
     }
 
     void on_message(websocketpp::connection_hdl hdl, message_ptr msg)
     {
-        std::cout << "Message received: " << msg->get_payload() << std::endl;
+        // std::cout << "Message received: " << msg->get_payload() << std::endl;
+        
+        // TODO
 
-        try
-        {
-            m_server.send(hdl, msg->get_payload(), msg->get_opcode());
-        }
-        catch (const websocketpp::exception &e)
-        {
-            std::cout << "Send failed: " << e.what() << std::endl;
-        }
+        // try
+        // {
+        //     m_server.send(hdl, msg->get_payload(), msg->get_opcode());
+        // }
+        // catch (const websocketpp::exception &e)
+        // {
+        //     std::cout << "Send failed: " << e.what() << std::endl;
+        // }
     }
 
     server m_server;

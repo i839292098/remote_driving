@@ -22,21 +22,21 @@ public:
     virtual EnHandleResult OnAccept(ITcpServer *pSender, CONNID dwConnID, UINT_PTR soClient)
     {
         PrintInfo(pSender, dwConnID);
-        std::cout << "tcp client连接成功" << std::endl;
+        std::cout << "tcp client 车端连接成功" << std::endl;
         return HR_OK;
     }
 
     virtual EnHandleResult OnClose(ITcpServer *pSender, CONNID dwConnID, EnSocketOperation enOperation, int iErrorCode)
     {
         PrintInfo(pSender, dwConnID);
-        std::cout << "tcp client断开连接" << std::endl;
+        std::cout << "tcp client 车端断开连接" << std::endl;
         pSender->SetConnectionExtra(dwConnID, NULL);
         return HR_OK;
     }
 
     virtual EnHandleResult OnReceive(ITcpServer *pSender, CONNID dwConnID, const BYTE *pData, int iLength)
     {
-        std::string msg_Data((char *)pData, 0, iLength);
+        // std::string msg_Data((char *)pData, 0, iLength);
 
         // TODO
 
@@ -65,21 +65,21 @@ public:
     virtual EnHandleResult OnAccept(ITcpServer *pSender, CONNID dwConnID, UINT_PTR soClient)
     {
         PrintInfo(pSender, dwConnID);
-        std::cout << "tcp client连接成功" << std::endl;
+        std::cout << "tcp client 驾驶舱连接成功" << std::endl;
         return HR_OK;
     }
 
     virtual EnHandleResult OnClose(ITcpServer *pSender, CONNID dwConnID, EnSocketOperation enOperation, int iErrorCode)
     {
         PrintInfo(pSender, dwConnID);
-        std::cout << "tcp client断开连接" << std::endl;
+        std::cout << "tcp client 驾驶舱断开连接" << std::endl;
         pSender->SetConnectionExtra(dwConnID, NULL);
         return HR_OK;
     }
 
     virtual EnHandleResult OnReceive(ITcpServer *pSender, CONNID dwConnID, const BYTE *pData, int iLength)
     {
-        std::string msg_Data((char *)pData, 0, iLength);
+        // std::string msg_Data((char *)pData, 0, iLength);
 
         // TODO
 
